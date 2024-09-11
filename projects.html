@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function showProjects() {
+      const homeCard = document.querySelector('.home-card');
+      const projectsCards = document.querySelectorAll('.projects-card');
+      const backButton = document.createElement('a');
+
+      homeCard.classList.add('');
+      projectsCards.forEach((card) => {
+        card.classList.remove('');
+      });
+
+      backButton.textContent = 'Go Back';
+      backButton.href = '#';
+      backButton.classList.add('back-button');
+      backButton.onclick = hideProjects;
+
+      document.body.appendChild(backButton);
+    }
+
+    function hideProjects() {
+      const homeCard = document.querySelector('.home-card');
+      const projectsCards = document.querySelectorAll('.projects-card');
+      const backButton = document.querySelector('.back-button');
+
+      projectsCards.forEach((card) => {
+        card.classList.add('');
+      });
+      homeCard.classList.remove('');
+
+      if (backButton) {
+        backButton.parentNode.removeChild(backButton);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="parallax"></div>
+  <div class="container">
+    <div class="card projects-card">
+      <img src="images/fireservers_logo.png" alt="FireServers" class="projects_img">
+      <h1>FireServers</h1>
+      <p>FireServers is a hosting company which provides free and paid hosting, it aims on the cheapest prices possible and provides VPS servers and any other server available.</p>
+      <a href="https://fireservers.net/" target="_blank">View FireServers</a>
+    </div>
+
+    <div class="card projects-card">
+      <img src="images/nightsfalls_shop.png" alt="NightsFall's Shop" class="projects_img">
+      <h1>NightsFall's Shop</h1>
+      <p>NightsFall's Shop is a store where you buy all kinds of products such as discord bots, custom development.</p>
+      <a href="https://shop.nightsfall.net/" target="_blank">View NightsFall's Shop</a>
+    </div>
+
+    <div class="card projects-card">
+      <img src="https://market.ctrlpanel.gg/uploads/resources_icons/default.png" alt="Project 3" class="projects_img">
+      <h1>CtrlPanel.gg Market</h1>
+      <p>I've developed CtrlPanel.gg resources like the user suspend bot.</p>
+      <a href="https://market.ctrlpanel.gg/profile/NiqhtsFall/" target="_blank">View my CtrlPanel.gg Market Profile</a>
+    </div>
+
+    <div class="card projects-card">
+      <img src="images/slice.png" alt="Project 4" class="projects_img">
+      <h1>Slice Tab Mods</h1>
+      <p>Mods for the Slice New Tab which I've developed. The Slice New Tab had almost no personalization which is why I developed this. </p>
+      <a href="https://github.com/SliceTab/Mods" target="_blank">View Slice Tab Mods</a>
+    </div>
+  </div>
+
+  <script>
+    const parallax = document.querySelector('.parallax');
+
+    const setParallaxDimensions = () => {
+      // Set the dimensions of the parallax container and layer based on the current viewport size
+      const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+      parallax.style.width = `${viewportWidth}px`;
+      parallax.style.height = `${viewportHeight}px`;
+
+      const scaleFactor = viewportWidth <= 600 ? 1.0 : 1.2;
+      parallax.style.transform = `scale(${scaleFactor})`;
+    };
+
+    setParallaxDimensions(); // Set initial dimensions
+
+    window.addEventListener('resize', setParallaxDimensions);
+
+    document.addEventListener('mousemove', (event) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      // Calculate the new position for the parallax layer
+      const offsetX = -(mouseX / window.innerWidth - 0.5) * 30; // Adjust the multiplier for the desired parallax effect
+      const offsetY = -(mouseY / window.innerHeight - 0.5) * 30;
+
+      // Apply the new position using CSS transform
+      parallax.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0) scale(1.2)`;
+    });
+  </script>
+</body>
+</html>

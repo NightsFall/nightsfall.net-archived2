@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="parallax"></div>
+  <div class="parallax-top"></div>
+
+  <div class="container">
+    <div class="card home-card">
+      <img class="pfp" src="images/pfp.gif" alt="NightsFall">
+      <h1>NightsFall</h1>
+      <p>Hey, I'm NightsFall my real name is Milan and im a self-taught hobbyist developer from The Netherlands. Feel free to browse my website and learn more about me!</p>
+      <a href="projects.html">View my projects</a>
+    </div>
+  </div>
+
+  <script>
+    const parallax = document.querySelector('.parallax');
+    const parallaxtop = document.querySelector('.parallax-top');
+
+    const setParallaxDimensions = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const scaleFactor = viewportWidth <= 600 ? 1.0 : 1.1;
+
+      parallax.style.width = parallaxtop.style.width = `${viewportWidth}px`;
+      parallax.style.height = parallaxtop.style.height = `${viewportHeight}px`;
+      parallax.style.transform = `scale(${scaleFactor})`;
+    };
+
+    setParallaxDimensions();
+    window.addEventListener('resize', setParallaxDimensions);
+
+    document.addEventListener('mousemove', (event) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+      const offsetX = -(mouseX / window.innerWidth - 0.5) * 30;
+      const offsetY = -(mouseY / window.innerHeight - 0.5) * 30;
+      const offsetXtop = (mouseX / window.innerWidth - 0.5) * 30;
+      const offsetYtop = (mouseY / window.innerHeight - 0.5) * 30;
+
+      parallax.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0) scale(1.1)`;
+      parallaxtop.style.transform = `translate3d(${offsetXtop}px, ${offsetYtop}px, 0) scale(1.1)`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.parallax {
+  background-image: url("./images/red_black_mountain-vmake.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  transform-origin: center center;
+  z-index: -2;
+  filter: blur(3px);
+}
+
+.parallax-top {
+  background-image: url("./images/red_black_mountain_moon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  transform-origin: center center;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+.pfp {
+  border-radius: 50% !important;
+  width: clamp(100px, calc(100px + (150 - 100) * ((100vw - 300px) / (1600 - 300))), 150px);
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects_img {
+  border-radius: 50% !important;
+  width: clamp(100px, calc(100px + (150 - 100) * ((100vw - 300px) / (1600 - 300))), 150px);
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.card,
+.projects-card {
+  animation: fadeIn 1.5s ease;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  height: auto; /* Adjusted to allow variable content height */
+  transition: 1.5s;
+  margin: 20px;
+}
+
+.card:hover,
+.projects-card:hover {
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
+  transition: 1.5s;
+}
+
+.card h1,
+.projects-card h1 {
+  font-size: clamp(30px, calc(30px + (36 - 30) * ((100vw - 300px) / (1600 - 300))), 36px);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.card p,
+.projects-card p {
+  font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300))), 18px);
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.card a,
+.projects-card a {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: clamp(14px, calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300))), 18px);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.7s;
+}
+
+.card a:hover,
+.projects-card a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .card,
+  .projects-card {
+    max-width: 300px;
+    width: 45%; /* Adjust as needed */
+    margin: 10px;
+  }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
